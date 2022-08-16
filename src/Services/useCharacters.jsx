@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
-import species from "../Constants/species";
+import { useEffect, useState } from 'react'
+import { useQuery, gql } from '@apollo/client'
+import species from '../Constants/species'
 
 export const useCharacters = () => {
   const [state, setState] = useState({
@@ -10,10 +10,10 @@ export const useCharacters = () => {
     index: 1,
     characters: [],
     allSpecies: species.species,
-    searchSpecies: "",
-    searchName: "",
-    loading: false,
-  });
+    searchSpecies: '',
+    searchName: '',
+    loading: false
+  })
   // query para llamar solo a las especies de la pagina actual
   const CHARACTERS = (index, searchSpecies, searchName) => {
     return gql`
@@ -40,31 +40,31 @@ export const useCharacters = () => {
         }
       }
     }
-  `;
-  };
-  const { loading, data } = useQuery(
+  `
+  }
+  const { data } = useQuery(
     CHARACTERS(state.index, state.searchSpecies, state.searchName)
-  );
+  )
 
   useEffect(() => {
     setState({
       ...state,
-      loading: true,
-    });
+      loading: true
+    })
     if (data) {
-      const info = data.characters.info;
-      const characters = data.characters.results;
+      const info = data.characters.info
+      const characters = data.characters.results
       setState({
         ...state,
         count: info.count,
         next: info.next,
         pages: info.pages,
         prev: info.prev,
-        characters: characters,
-        loading: false,
-      });
+        characters,
+        loading: false
+      })
     }
-  }, [data]);
+  }, [data])
 
-  return { state, setState };
-};
+  return { state, setState }
+}

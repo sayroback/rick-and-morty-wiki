@@ -1,3 +1,3 @@
 export const colors = {
-  cardColor: "#5AC1B8",
-};
+  cardColor: '#5AC1B8'
+}

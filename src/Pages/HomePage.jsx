@@ -1,14 +1,20 @@
 import React from "react";
-import { CardCharacter, PaginationCharacters } from "../Components";
+import {
+  CardCharacter,
+  PaginationCharacters,
+  Loading,
+  ToTop,
+} from "../Components";
 import { useCharacters } from "../Services/useCharacters";
 import { Box } from "reflexbox";
 
 export const HomePage = () => {
   const { state, setState } = useCharacters();
   const characters = state.characters;
+  const { loading } = state;
 
   const nextPage = (value) => {
-    setState({ ...state, index: value });
+    setState({ ...state, loading: true, index: value });
   };
 
   return (
@@ -29,7 +35,8 @@ export const HomePage = () => {
           : null}
       </Box>
       <PaginationCharacters nextPage={nextPage} index={state.index} />
-      <div></div>
+      <Loading openModal={loading} />
+      <ToTop />
     </div>
   );
 };

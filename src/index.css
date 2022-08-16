@@ -35,3 +35,62 @@ body {
 .pagination-container .pagination li button {
   color: #fff;
 }
+
+.loading {
+  display: flex;
+  width: 3.5em;
+  height: 3.5em;
+  border: 3px solid transparent;
+  border-top-color: #249c1b;
+  border-bottom-color: #249c1b;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+.loading:before {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 0.95em;
+  height: 0.95em;
+  border: 3px solid #a4d897;
+  border-radius: 50%;
+  animation: pulse 1s alternate ease-in-out infinite;
+}
+.loading:before {
+  content: ".";
+  color: #a4d897;
+  display: block;
+  margin: auto;
+  width: 0.35em;
+  height: 0.35em;
+  border: 3px solid #a4d897;
+  border-radius: 50%;
+  animation: pulse 1s alternate ease-in-out infinite;
+}
+.loading:before {
+  content: ".";
+  color: #a4d897;
+  display: block;
+  margin: auto;
+  width: 0.45em;
+  height: 0.35em;
+  border: 3px solid #a4d897;
+  border-radius: 50%;
+  animation: pulse 1s alternate ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}

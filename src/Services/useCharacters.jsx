@@ -12,10 +12,10 @@ export const useCharacters = () => {
     allSpecies: species.species,
     searchSpecies: "",
     searchName: "",
+    loading: false,
   });
   // query para llamar solo a las especies de la pagina actual
   const CHARACTERS = (index, searchSpecies, searchName) => {
-    console.log(index);
     return gql`
     query {
       characters(page: ${index}, filter: {species: "${searchSpecies}", name:"${searchName}"}) {
@@ -42,11 +42,15 @@ export const useCharacters = () => {
     }
   `;
   };
-  const { data } = useQuery(
+  const { loading, data } = useQuery(
     CHARACTERS(state.index, state.searchSpecies, state.searchName)
   );
 
   useEffect(() => {
+    setState({
+      ...state,
+      loading: true,
+    });
     if (data) {
       const info = data.characters.info;
       const characters = data.characters.results;
@@ -57,6 +61,7 @@ export const useCharacters = () => {
         pages: info.pages,
         prev: info.prev,
         characters: characters,
+        loading: false,
       });
     }
   }, [data]);

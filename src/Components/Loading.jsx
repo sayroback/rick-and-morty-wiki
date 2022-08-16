@@ -4,13 +4,7 @@ import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
 import Fade from '@mui/material/Fade'
 import Button from '@mui/material/Button'
-
-const style = {
-  display: 'grid',
-  height: '100vh',
-  justifyContent: 'center',
-  alignItems: 'center'
-}
+import { ContainerLoading } from '../Styles/components-styled'
 
 export const Loading = ({ openModal }) => {
   const [open, setOpen] = React.useState(true)
@@ -39,7 +33,7 @@ export const Loading = ({ openModal }) => {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box sx={ContainerLoading}>
             <div className='loading' />
           </Box>
         </Fade>

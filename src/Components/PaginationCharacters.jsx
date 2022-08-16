@@ -1,21 +1,14 @@
 import * as React from 'react'
 import Pagination from '@mui/material/Pagination'
-import styled from '@emotion/styled'
 import { useCharacters } from '../Services/useCharacters'
 import { useScreen } from '../Hooks/useScreen'
+import { PaginationBox } from '../Styles/components-styled'
 
 export const PaginationCharacters = ({ nextPage, index }) => {
   const { state } = useCharacters()
   const { pages } = state
   const { width } = useScreen()
 
-  const PaginationContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: #fff;
-    align-items: center;
-  `
   const goToTop = () => {
     document.body.scrollIntoView()
   }
@@ -27,7 +20,7 @@ export const PaginationCharacters = ({ nextPage, index }) => {
   }
 
   return (
-    <PaginationContainer className='pagination-container'>
+    <PaginationBox>
       <Pagination
         count={pages}
         page={index}
@@ -38,6 +31,6 @@ export const PaginationCharacters = ({ nextPage, index }) => {
           handleChange(page)
         }}
       />
-    </PaginationContainer>
+    </PaginationBox>
   )
 }

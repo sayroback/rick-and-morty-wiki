@@ -3,10 +3,12 @@ import {
   CardCharacter,
   PaginationCharacters,
   Loading,
-  ToTop
+  ToTop,
+  HeroHomePage
 } from '../Components'
 import { useCharacters } from '../Services/useCharacters'
 import { Box } from 'reflexbox'
+import { Cards } from '../Styles/components-styled'
 
 export const HomePage = () => {
   const { state, setState } = useCharacters()
@@ -19,24 +21,22 @@ export const HomePage = () => {
 
   return (
     <div>
-      <Box
-        sx={{
-          display: 'grid',
-          gridGap: 4, // theme.space[3]
-          marginLeft: '15px',
-          marginRight: '15px',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))'
-        }}
-      >
-        {characters
-          ? characters.map((item, id) => {
-            return <CardCharacter key={id} item={item} />
-          })
-          : null}
-      </Box>
-      <PaginationCharacters nextPage={nextPage} index={state.index} />
-      <Loading openModal={loading} />
-      <ToTop />
+      <HeroHomePage/>
+      <div>
+        <h1>Characters</h1>
+        <Box
+          sx={Cards}
+        >
+          {characters
+            ? characters.map((item, id) => {
+              return <CardCharacter key={id} item={item} />
+            })
+            : null}
+        </Box>
+        <PaginationCharacters nextPage={nextPage} index={state.index} />
+        <Loading openModal={loading} />
+        <ToTop />
+      </div>
     </div>
   )
 }

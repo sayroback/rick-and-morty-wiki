@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  background: #4eb946;
+  background: radial-gradient(
+    circle,
+    rgba(78, 185, 70, 1) 0%,
+    rgba(4, 64, 41, 1) 100%
+  );
+  box-sizing: content-box;
+}

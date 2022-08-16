@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './Styles/sass/index.scss'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'

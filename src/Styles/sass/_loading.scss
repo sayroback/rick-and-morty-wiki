@@ -1,45 +1,7 @@
-body {
-  margin: 0;
-  font-family: "Roboto Mono", monospace;
-  background: #4eb946;
-  background: radial-gradient(
-    circle,
-    rgba(78, 185, 70, 1) 0%,
-    rgba(4, 64, 41, 1) 100%
-  );
-  box-sizing: border-box;
-}
-.card-characters {
-  background: rgb(193, 221, 195);
-  background: linear-gradient(
-    0deg,
-    rgb(181, 255, 166) 0%,
-    rgb(174, 207, 124) 100%
-  );
-}
-.card-characters__description {
-  color: #1f1d1d;
-}
-.pagination-container {
-  height: 70px;
-  padding: 8px 0;
-}
-.pagination ul {
-  background-color: rgba(255, 255, 255, 0.164);
-  border-radius: 16px;
-  padding: 4px;
-}
-.pagination-container .pagination li div {
-  color: #fff;
-}
-.pagination-container .pagination li button {
-  color: #fff;
-}
-
 .loading {
   display: flex;
-  width: 3.5em;
-  height: 3.5em;
+  width: 5.5em;
+  height: 5.5em;
   border: 3px solid transparent;
   border-top-color: #249c1b;
   border-bottom-color: #249c1b;
@@ -88,9 +50,9 @@ body {
 
 @keyframes pulse {
   from {
-    transform: scale(0.5);
+    transform: scale(1);
   }
   to {
-    transform: scale(1);
+    transform: scale(2);
   }
 }

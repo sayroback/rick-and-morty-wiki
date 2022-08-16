@@ -1,5 +1,8 @@
 import React from "react";
+import { CardCharacter } from "../Components";
 import { useCharacters } from "../Services/useCharacters";
+import { Flex, Box } from "reflexbox";
+
 export const HomePage = () => {
   const { state, setState } = useCharacters();
   const characters = state.characters;
@@ -14,17 +17,27 @@ export const HomePage = () => {
       setState({ ...state, index: 1 });
     }
   };
+  if (characters[1]) {
+    console.log(characters[1]);
+  }
 
   return (
     <div>
-      {characters.map((item, id) => {
-        return (
-          <div key={id}>
-            <p>{item.id}</p>
-            <h2>{item.name}</h2>
-          </div>
-        );
-      })}
+      <Box
+        sx={{
+          display: "grid",
+          gridGap: 4, // theme.space[3]
+          marginLeft: "15px",
+          marginRight: "15px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+        }}
+      >
+        {characters
+          ? characters.map((item, id) => {
+              return <CardCharacter key={id} item={item} />;
+            })
+          : null}
+      </Box>
       <div>
         <button onClick={() => prevPage()}>Prev</button>
         <button onClick={() => nextPage()}>Next</button>

@@ -1,0 +1,1 @@
+export { CardCharacter } from "./CardCharacter";

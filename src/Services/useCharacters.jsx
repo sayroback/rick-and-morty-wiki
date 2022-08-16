@@ -14,9 +14,11 @@ export const useCharacters = () => {
     searchName: "",
   });
   // query para llamar solo a las especies de la pagina actual
-  const CHARACTERS = gql`
+  const CHARACTERS = (index, searchSpecies, searchName) => {
+    console.log(index);
+    return gql`
     query {
-      characters(page: ${state.index}, filter: {species: "${state.searchSpecies}", name:"${state.searchName}"}) {
+      characters(page: ${index}, filter: {species: "${searchSpecies}", name:"${searchName}"}) {
         info {
           count
           pages
@@ -39,7 +41,10 @@ export const useCharacters = () => {
       }
     }
   `;
-  const { data } = useQuery(CHARACTERS);
+  };
+  const { data } = useQuery(
+    CHARACTERS(state.index, state.searchSpecies, state.searchName)
+  );
 
   useEffect(() => {
     if (data) {

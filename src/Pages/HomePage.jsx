@@ -1,25 +1,15 @@
 import React from "react";
-import { CardCharacter } from "../Components";
+import { CardCharacter, PaginationCharacters } from "../Components";
 import { useCharacters } from "../Services/useCharacters";
-import { Flex, Box } from "reflexbox";
+import { Box } from "reflexbox";
 
 export const HomePage = () => {
   const { state, setState } = useCharacters();
   const characters = state.characters;
 
-  const nextPage = () => {
-    setState({ ...state, index: state.index + 1 });
+  const nextPage = (value) => {
+    setState({ ...state, index: value });
   };
-  const prevPage = () => {
-    if (state.index > 0) {
-      setState({ ...state, index: state.index - 1 });
-    } else {
-      setState({ ...state, index: 1 });
-    }
-  };
-  if (characters[1]) {
-    console.log(characters[1]);
-  }
 
   return (
     <div>
@@ -38,10 +28,8 @@ export const HomePage = () => {
             })
           : null}
       </Box>
-      <div>
-        <button onClick={() => prevPage()}>Prev</button>
-        <button onClick={() => nextPage()}>Next</button>
-      </div>
+      <PaginationCharacters nextPage={nextPage} index={state.index} />
+      <div></div>
     </div>
   );
 };

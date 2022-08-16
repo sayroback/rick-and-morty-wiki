@@ -20,3 +20,18 @@ body {
 .card-characters__description {
   color: #1f1d1d;
 }
+.pagination-container {
+  height: 70px;
+  padding: 8px 0;
+}
+.pagination ul {
+  background-color: rgba(255, 255, 255, 0.164);
+  border-radius: 16px;
+  padding: 4px;
+}
+.pagination-container .pagination li div {
+  color: #fff;
+}
+.pagination-container .pagination li button {
+  color: #fff;
+}

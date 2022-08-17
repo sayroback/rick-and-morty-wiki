@@ -1,22 +1,23 @@
-import React from 'react'
-import {
-  CardCharacter,
-  PaginationCharacters,
-  Loading,
-  ToTop,
-  HeroHomePage
-} from '../Components'
-import { useCharacters } from '../Services/useCharacters'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Box } from 'reflexbox'
+import { setCharacters } from '../Actions'
+import { CardCharacter, HeroHomePage, ToTop } from '../Components'
+import { fetchData } from '../Services/fetchCharacters'
 import { Cards } from '../Styles/components-styled'
 
 export const HomePage = () => {
-  const { state, setState } = useCharacters()
-  const characters = state.characters
-  const { loading } = state
+  const characters = useSelector(state => state.characters)
+  const dispatch = useDispatch()
+  const data = fetchData()
+  useEffect(() => {
+    if (data.data) {
+      dispatch(setCharacters(data.data.characters))
+    }
+  }, [data])
 
   const nextPage = (value) => {
-    setState({ ...state, loading: true, index: value })
+    // setState({ ...state, loading: true, index: value })
   }
 
   return (
@@ -33,9 +34,9 @@ export const HomePage = () => {
             })
             : null}
         </Box>
-        <PaginationCharacters nextPage={nextPage} index={state.index} />
-        <Loading openModal={loading} />
-        <ToTop />
+        {/* <PaginationCharacters nextPage={nextPage} index={state.index} />
+        <Loading openModal={loading} /> */}
+        <ToTop nextPage={nextPage} />
       </div>
     </div>
   )

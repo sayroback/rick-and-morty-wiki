@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box } from 'reflexbox'
-import { setCharacters } from '../Actions'
-import { CardCharacter, HeroHomePage, ToTop } from '../Components'
+import { setCharacters, setLoading } from '../Actions'
+import { CardCharacter, HeroHomePage, PaginationCharacters, ToTop } from '../Components'
 import { fetchData } from '../Services/fetchCharacters'
 import { Cards } from '../Styles/components-styled'
 
@@ -13,12 +13,11 @@ export const HomePage = () => {
   useEffect(() => {
     if (data.data) {
       dispatch(setCharacters(data.data.characters))
+      dispatch(setLoading(false))
+    } else {
+      dispatch(setLoading(true))
     }
   }, [data])
-
-  const nextPage = (value) => {
-    // setState({ ...state, loading: true, index: value })
-  }
 
   return (
     <div>
@@ -34,9 +33,8 @@ export const HomePage = () => {
             })
             : null}
         </Box>
-        {/* <PaginationCharacters nextPage={nextPage} index={state.index} />
-        <Loading openModal={loading} /> */}
-        <ToTop nextPage={nextPage} />
+        <PaginationCharacters />
+        <ToTop />
       </div>
     </div>
   )

@@ -5,12 +5,16 @@ import Modal from '@mui/material/Modal'
 import Fade from '@mui/material/Fade'
 import Button from '@mui/material/Button'
 import { ContainerLoading } from '../Styles/components-styled'
+import { useSelector } from 'react-redux'
 
-export const Loading = ({ openModal }) => {
+export const Loading = () => {
+  const openModal = useSelector(state => state.loading)
   const [open, setOpen] = React.useState(true)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
+
   React.useEffect(() => {
+    document.body.scrollIntoView({ behavior: 'smooth' })
     if (!openModal) {
       handleClose()
     } else {

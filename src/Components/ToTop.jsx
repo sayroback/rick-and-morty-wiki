@@ -5,7 +5,7 @@ import NorthIcon from '@mui/icons-material/North'
 
 export const ToTop = () => {
   const goToTop = () => {
-    document.body.scrollIntoView()
+    document.body.scrollIntoView({ behavior: 'smooth' })
   }
   return (
     <Box sx={{ position: 'fixed', bottom: '141px', right: '16px' }}>

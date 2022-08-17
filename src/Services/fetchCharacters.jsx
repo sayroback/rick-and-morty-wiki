@@ -1,11 +1,12 @@
 import { useQuery, gql } from '@apollo/client'
+import { useSelector } from 'react-redux'
 
 // (page: ${index}, filter: {species: "${searchSpecies}", name:"${searchName}"} index, searchSpecies, searchName)
 
-export const CHARACTERS = () => {
+export const CHARACTERS = (page) => {
   return gql`
   query {
-    characters {
+characters(page: ${page}) {
       info {
         count
         pages
@@ -31,6 +32,7 @@ export const CHARACTERS = () => {
 }
 
 export const fetchData = () => {
-  const data = useQuery(CHARACTERS())
+  const page = useSelector(state => state.page)
+  const data = useQuery(CHARACTERS(page))
   return data
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 const images = ['https://i.ibb.co/MR5TbBp/rick-desktop.jpg', 'https://i.ibb.co/PjgZfwQ/rick-mobile.png']
 
-const HeroContainer = styled.div`
+const HeroContainer = styled.main`
   display: flex;
   width: 100%;
   height: 70vh;

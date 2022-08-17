@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-const images = ['https://i.ibb.co/MR5TbBp/rick-desktop.jpg', 'https://i.ibb.co/PjgZfwQ/rick-mobile.png']
+import { SearchCharacters } from './SearchCharacters'
+const images = ['https://i.ibb.co/MR5TbBp/rick-desktop.jpg', 'https://i.ibb.co/PjgZfwQ/rick-mobile.png', 'https://i.ibb.co/0Bywh29/rick-logo-1.png']
 
 const HeroContainer = styled.main`
   display: flex;
@@ -20,11 +21,30 @@ const HeroImage = styled.div`
     background-size: contain;
   }
 `
+const LogoRickContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 20vh;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+`
+const LogoRick = styled.img`
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+`
 
 export const HeroHomePage = () => {
   return (
       <HeroContainer>
-        <HeroImage />
+        <HeroImage>
+          <LogoRickContainer>
+          <a href="/">
+            <LogoRick src={images[2]}/>
+          </a>
+          </LogoRickContainer>
+          <SearchCharacters/>
+        </HeroImage>
       </HeroContainer>
   )
 }

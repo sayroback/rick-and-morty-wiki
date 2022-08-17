@@ -1,5 +1,7 @@
-export { CardCharacter } from './CardCharacter'
 export { PaginationCharacters } from './PaginationCharacters'
 export { Loading } from './Loading'
 export { ToTop } from './ToTop'
 export { HeroHomePage } from './HeroHomePage'
+export { CardCharacter } from './CardCharacter'
+export { FilterCharacters } from './FilterCharacters'
+export { Footer } from './Footer'

@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
-import CardDescription from './CardDescription'
+import { CardDescription } from './CardDescription/CardDescription'
 
 export const CardCharacter = ({ item }) => {
   return (

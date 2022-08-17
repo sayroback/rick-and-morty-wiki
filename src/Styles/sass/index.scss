@@ -1,6 +1,7 @@
 @import "./pagination-modification.scss";
 @import "./global.scss";
 @import "./loading.scss";
+@import "./footer.scss";
 
 .card-characters {
   background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
@@ -9,9 +10,18 @@
   color: #1f1d1d;
 }
 
-.div {
-  background-image: url("https://i.ibb.co/MR5TbBp/rick-desktop.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+svg.iconSearch {
+  fill: #ffffff;
+  stroke: #ffffff;
+}
+
+.filters {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 15px;
+  color: #cbe9c7f5;
+}
+h1 {
+  padding-left: 15px;
+  color: #cbe9c7f5;
 }

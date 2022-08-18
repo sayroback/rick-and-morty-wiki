@@ -25,8 +25,9 @@ export const SearchCharacters = () => {
   const handleSubmit = () => {
     dispatch(setFindName(name))
   }
+
   return (
-    <Box align="center" justify="center" pad="small" direction="row">
+    <Box align="center" justify="center" pad="small" direction="row" id='search-container'>
       <Box style={SearchBox} width="xlarge" gap="medium">
         <TextInput onKeyDown={(event) => {
           if (event.key === 'Enter') {

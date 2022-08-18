@@ -25,3 +25,14 @@ h1 {
   padding-left: 15px;
   color: #cbe9c7f5;
 }
+
+#search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}

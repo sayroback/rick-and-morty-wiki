@@ -22,7 +22,7 @@ export const charactersReducer = (state = initialState, action) => {
     case SET_FILTER:
       return { ...state, filters: { species: action.payload } }
     case SET_FINDNAME:
-      return { ...state, filters: { name: action.payload } }
+      return { ...state, page: 1, filters: { name: action.payload } }
     default:
       return state
   }

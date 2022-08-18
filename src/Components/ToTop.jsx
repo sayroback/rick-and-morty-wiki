@@ -8,7 +8,7 @@ export const ToTop = () => {
     document.body.scrollIntoView({ behavior: 'smooth' })
   }
   return (
-    <Box sx={{ position: 'fixed', bottom: '141px', right: '16px' }}>
+    <Box sx={{ position: 'fixed', bottom: '250px', right: '16px' }}>
       <Fab onClick={goToTop} color='primary'>
         <NorthIcon />
       </Fab>

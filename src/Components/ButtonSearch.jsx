@@ -4,7 +4,7 @@ import Button from '@mui/material/Button'
 
 export const ButtonSearch = ({ handleSubmit }) => {
   return (
-    <Stack spacing={2} sx={{ marginLeft: '30px' }}>
+    <Stack spacing={2}>
       <Button size="large" variant="contained" color="success" onClick={() => handleSubmit()}>
         Search
       </Button>
